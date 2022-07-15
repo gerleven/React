@@ -1,16 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-import Componente from './Components/Componente';
-import Propiedades from './Components/Propiedades';
+import logo from "./logo.svg";
+import "./App.css";
+import Componente from "./Components/Componente";
+import Propiedades from "./Components/Propiedades";
+import Estado from "./Components/Estado";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <section>
+          <Estado />
+        </section>
+
         {/* <section>
           <img src={logo} className="App-logo" alt="logo" />
         </section> */}
-        <section>
+        {/* <section>
           <Componente mensaje="Este Mensaje viene desde el padre"></Componente>
         </section>
         <hr/>
@@ -26,10 +31,7 @@ function App() {
             componenteReact = {<Componente mensaje="Componente pasado como Prop"/>}
             />
         </section>
-            <hr/>
-        <section>
-          
-        </section>
+            <hr/> */}
       </header>
     </div>
   );
