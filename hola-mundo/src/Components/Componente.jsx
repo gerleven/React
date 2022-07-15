@@ -1,5 +1,12 @@
 import {React, Component, Fragment} from 'react';
 
+const Componente = ({mensaje})=>
+    <>
+        <div>Usando funcion en una variable const con arrow function:</div>
+        <div>{mensaje}</div>
+    </>
+export default Componente;
+
 // /*Componente de clase*/
 // export default class Componente extends Component {
 //     render() { 
@@ -51,9 +58,9 @@ import {React, Component, Fragment} from 'react';
 // const Componente = ({mensaje}) => {return(<><div>Usando funcion en una variable const con arrow function:</div><div>{mensaje}</div></>)} //()=>() o ()=>{return()}, si agregar las {} despues de => el return no se puede omitir
 // export default Componente;
 
-const Componente = ({mensaje})=>
-    <>
-        <div>Usando funcion en una variable const con arrow function:</div>
-        <div>{mensaje}</div>
-    </>
-export default Componente;
+// const Componente = ({mensaje})=>
+//     <>
+//         <div>Usando funcion en una variable const con arrow function:</div>
+//         <div>{mensaje}</div>
+//     </>
+// export default Componente;
