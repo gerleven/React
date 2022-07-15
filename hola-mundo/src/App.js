@@ -3,6 +3,7 @@ import "./App.css";
 import Componente from "./Components/Componente";
 import Propiedades from "./Components/Propiedades";
 import Estado from "./Components/Estado";
+import RenderizadoCondicional from "./Components/RenderizadoCondicional";
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <header className="App-header">
         <section>
           <Estado />
+        </section>
+        <section>
+          <RenderizadoCondicional />
         </section>
 
         {/* <section>
