@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
-const Propiedades = (props) => {
+export default function Propiedades(props){
     return (
     <div>
-        <hr/>
-        <h2>Propiedades:</h2>
+        <h2>{props.porDefecto}:</h2>
         <ul>
             <li>{props.cadena}</li>
             <li>{props.numero}</li>
@@ -18,5 +18,12 @@ const Propiedades = (props) => {
     </div>
     );
 }
- 
-export default Propiedades;
+
+Propiedades.defaultProps={
+    porDefecto: "Props: (Valor por defecto)"    //Defalt Value
+}
+
+Propiedades.propTypes={
+    numero: PropTypes.number.isRequired,        //as Required
+    cadena: PropTypes.string,                   //Type
+}

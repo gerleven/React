@@ -7,12 +7,13 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <section>
+        {/* <section>
           <img src={logo} className="App-logo" alt="logo" />
-        </section>
+        </section> */}
         <section>
           <Componente mensaje="Este Mensaje viene desde el padre"></Componente>
         </section>
+        <hr/>
         <section>
           <Propiedades
             cadena = "Una cadena"
@@ -23,8 +24,11 @@ function App() {
             funcion = {(num)=>{return num*num}}
             elementoReact = {<h6>Elemento React</h6>}
             componenteReact = {<Componente mensaje="Componente pasado como Prop"/>}
-          />
-          {console.table(Propiedades)}
+            />
+        </section>
+            <hr/>
+        <section>
+          
         </section>
       </header>
     </div>
