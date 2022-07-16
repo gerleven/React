@@ -4,17 +4,21 @@ import Componente from "./Components/Componente";
 import Propiedades from "./Components/Propiedades";
 import Estado from "./Components/Estado";
 import RenderizadoCondicional from "./Components/RenderizadoCondicional";
+import Listas from "./Components/Listas";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <section>
+          <Listas />
+        </section>
+        {/* <section>
           <Estado />
         </section>
         <section>
           <RenderizadoCondicional />
-        </section>
+        </section> */}
 
         {/* <section>
           <img src={logo} className="App-logo" alt="logo" />
