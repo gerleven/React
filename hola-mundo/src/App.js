@@ -50,6 +50,7 @@ function App() {
         <Contador2 />
         <Contador2 titulo="likes" /> */}
         <Reloj />
+        <PokeApi />
       </header>
     </div>
   );
