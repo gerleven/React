@@ -7,6 +7,8 @@ import RenderizadoCondicional from "./Components/RenderizadoCondicional";
 import Listas from "./Components/Listas";
 import Contador from "./Components/Contador";
 import Contador2 from "./Components/Contador2";
+import Reloj from "./Components/Reloj";
+import PokeApi from "./Components/Api";
 
 function App() {
   return (
@@ -43,10 +45,11 @@ function App() {
           <Listas />
         </section>
          */}
-        <hr />
+        {/* <hr />
         <Contador />
         <Contador2 />
-        <Contador2 titulo="likes" />
+        <Contador2 titulo="likes" /> */}
+        <Reloj />
       </header>
     </div>
   );
