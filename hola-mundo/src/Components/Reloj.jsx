@@ -51,7 +51,7 @@ export default class Reloj extends Component {
       <>
         <div>
           <span>{this.state.date}</span>{" "}
-          {this.state.running == true ? <span>ON</span> : <span>OFF</span>}
+          {this.state.running === true ? <span>ON</span> : <span>OFF</span>}
         </div>
         <button onClick={this.start}>Iniciar</button>
         <button onClick={this.stop}>Detener</button>

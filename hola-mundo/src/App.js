@@ -49,7 +49,7 @@ function App() {
         <Contador />
         <Contador2 />
         <Contador2 titulo="likes" /> */}
-        <Reloj />
+        {/* <Reloj /> */}
         <PokeApi />
       </header>
     </div>
