@@ -11,8 +11,10 @@ import Reloj from "./Components/Reloj";
 import PokeApi from "./Components/Api";
 import ContadorHooks from "./Components/ContadorHooks";
 import RelojHooks from "./Components/RelojHooks";
+import { useState } from "react";
 
 function App() {
+  const [relojVisible, setRelojVisible] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
@@ -25,7 +27,6 @@ function App() {
         {/* <section>
           <img src={logo} className="App-logo" alt="logo" />
         </section> */}
-
         {/* <section>
           <Componente mensaje="Este Mensaje viene desde el padre"></Componente>
         </section>
@@ -54,7 +55,12 @@ function App() {
         {/* <Reloj /> */}
         {/* <PokeApi /> */}
         <ContadorHooks></ContadorHooks>
-        <RelojHooks/>
+        <br></br>
+        <hr></hr>
+        {relojVisible ? <RelojHooks /> : null}
+        <button onClick={()=>{setRelojVisible(!relojVisible)}}>
+          {relojVisible?"Ocultar Reloj":"Mostrar Reloj"}
+        </button>
       </header>
     </div>
   );
