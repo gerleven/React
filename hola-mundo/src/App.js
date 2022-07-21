@@ -10,6 +10,7 @@ import Contador2 from "./Components/Contador2";
 import Reloj from "./Components/Reloj";
 import PokeApi from "./Components/Api";
 import ContadorHooks from "./Components/ContadorHooks";
+import RelojHooks from "./Components/RelojHooks";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
         {/* <Reloj /> */}
         {/* <PokeApi /> */}
         <ContadorHooks></ContadorHooks>
+        <RelojHooks/>
       </header>
     </div>
   );
