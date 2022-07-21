@@ -9,6 +9,7 @@ import Contador from "./Components/Contador";
 import Contador2 from "./Components/Contador2";
 import Reloj from "./Components/Reloj";
 import PokeApi from "./Components/Api";
+import ContadorHooks from "./Components/ContadorHooks";
 
 function App() {
   return (
@@ -50,7 +51,8 @@ function App() {
         <Contador2 />
         <Contador2 titulo="likes" /> */}
         {/* <Reloj /> */}
-        <PokeApi />
+        {/* <PokeApi /> */}
+        <ContadorHooks></ContadorHooks>
       </header>
     </div>
   );
