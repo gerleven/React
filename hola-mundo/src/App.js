@@ -12,12 +12,17 @@ import PokeApi from "./Components/Api";
 import ContadorHooks from "./Components/ContadorHooks";
 import RelojHooks from "./Components/RelojHooks";
 import { useState } from "react";
+import ApiHooks from "./Components/ApiHooks";
 
 function App() {
   const [relojVisible, setRelojVisible] = useState(false);
+  
   return (
     <div className="App">
       <header className="App-header">
+        <section>
+
+        
         {/* <section>
           <Estado />
         </section>
@@ -54,6 +59,7 @@ function App() {
         <Contador2 titulo="likes" /> */}
         {/* <Reloj /> */}
         {/* <PokeApi /> */}
+        </section>
         <ContadorHooks></ContadorHooks>
         <br></br>
         <hr></hr>
@@ -61,6 +67,7 @@ function App() {
         <button onClick={()=>{setRelojVisible(!relojVisible)}}>
           {relojVisible?"Ocultar Reloj":"Mostrar Reloj"}
         </button>
+        <ApiHooks/>
       </header>
     </div>
   );

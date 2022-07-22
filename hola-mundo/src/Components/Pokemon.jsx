@@ -6,7 +6,7 @@ function Pokemon({ name, id, avatar }) {
       <figure>
         <span>{id} - </span>
         <span>{name}</span>
-        <img src={avatar} alt={name}></img>
+        <img src={avatar}></img>
       </figure>
     </div>
   );
