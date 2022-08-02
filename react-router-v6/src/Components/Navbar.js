@@ -23,7 +23,7 @@ const Navbar = () => {
         Home -{" "}
       </NavLink>
         {/* En el className de Link no solo podemos pasarle un string, no acepta funciones como NavLink */}
-      <Link className="active" to={`/about/${id + 1}`}>
+      <Link className="active" to={`/user/${id + 1}`}>
         go to about/11
       </Link>
     </>
