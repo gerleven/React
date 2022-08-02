@@ -1,6 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
+
+const id = 10;
 
 const Navbar = () => {
   return (
@@ -20,6 +22,10 @@ const Navbar = () => {
       <NavLink className={({ isActive }) => (isActive ? "active" : "")} to="/">
         Home -{" "}
       </NavLink>
+        {/* En el className de Link no solo podemos pasarle un string, no acepta funciones como NavLink */}
+      <Link className="active" to={`/about/${id + 1}`}>
+        go to about/11
+      </Link>
     </>
   );
 };
