@@ -11,7 +11,7 @@ const UsersPage = () => {
       <Link to="juan">Juan</Link><br/>
       <Link to="german">German</Link><br/>
 
-      <Outlet/>
+      <Outlet/> {/* <-- Aca apareceran los sub componentes*/}
 
       <button onClick={()=>{navigation("/")}}>Back</button>
 

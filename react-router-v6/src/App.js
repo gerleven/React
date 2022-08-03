@@ -36,10 +36,12 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+
         <Route path="/users/*" element={<UsersPage />}>
           <Route path="juan" element={<h3>Juan</h3>}/>
           <Route path="german" element={<h3>German</h3>}/>
         </Route>
+        
         <Route path="/usuarios" element={<Navigate replace to="/users" />} />       {/* El replace hace que /usuarios sea reemplazado por /users en vez de ser apilado encima, al volver con el navegador volverias al "/"*/}
         <Route path="/usuariosSinRetorno" element={<Navigate to="/users" />} />     {/* <-- Navigate */}
         <Route path="/user/:id" element={<UserPage />} />
