@@ -29,7 +29,7 @@ const App = () => {
       <NavLink to="/usuariosSinRetorno">go to /usuarios y sin retorno</NavLink><br/>
       <NavLink to="/dashboard">Dashboard</NavLink><br/>
 
-      <button onClick={()=>{/*navigate("/users")*/}}>Go to Users</button><br/>
+      {/* <button onClick={()=>navigate("/users")}>Go to Users</button><br/> */}
       
       
       {/*if try to use useNavigate here:*/}
