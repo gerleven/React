@@ -41,7 +41,7 @@ const App = () => {
         <Route path="/user/:id" element={<UserPage />} />
         <Route path="/user/:id/:name" element={<UserPage />} /> {/* <-- paso de parametros por url */} {/* <-- hook useParams */}   {/* <-- Link */}
         <Route path="/others" element={<p>Others!</p>} />
-        <Route path="/dashboard/*" element={<Dashboard/>} />  {/*hook useNavigate*/}
+        <Route path="/dashboard/*" element={<Dashboard/>} />  {/*hook useNavigate*/} {/*subComponents o Componentes anidados*/}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
