@@ -22,8 +22,8 @@ const App = () => {
       <NavLink to="/user/10/Juan">go to /user/10/Juan</NavLink><br></br> */}
       {/* <NavLink to="/users">go to /users</NavLink><br></br>
       <NavLink to="/about">go to /about</NavLink><br></br> */}
-      <NavLink to="/usuarios">go to /usuarios</NavLink><br></br>
-      <NavLink to="/usuariosSinRetorno">go to /usuarios y sin retorno</NavLink><br></br>
+      {/* <NavLink to="/usuarios">go to /usuarios</NavLink><br></br>
+      <NavLink to="/usuariosSinRetorno">go to /usuarios y sin retorno</NavLink><br></br> */}
       <NavLink to="/dashboard">Dashboard</NavLink><br></br>
       
       {/*if try to use useNavigate here:*/}
