@@ -1,10 +1,11 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate} from "react-router-dom";
 import "./navbar.css";
 
 const id = 10;
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <>
       <NavLink
@@ -26,6 +27,7 @@ const Navbar = () => {
       <Link className="active" to={`/user/${id + 1}`}>
         go to about/11
       </Link>
+      <span>{"----"}</span><button onClick={()=>{navigate("/")}}>Back to Home</button><br/>
     </>
   );
 };

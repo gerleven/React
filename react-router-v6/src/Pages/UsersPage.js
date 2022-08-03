@@ -3,7 +3,7 @@ import {Link, Outlet, useNavigate} from "react-router-dom";
 
 const UsersPage = () => {
 
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   
   return (
     <>
@@ -13,7 +13,7 @@ const UsersPage = () => {
 
       <Outlet/> {/* <-- Aca apareceran los sub componentes*/}
 
-      <button onClick={()=>{navigation("/")}}>Back</button>
+      <button onClick={()=>{navigate("/")}}>Back</button>
 
     </>
   );
