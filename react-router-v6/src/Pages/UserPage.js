@@ -7,6 +7,7 @@ const UserPage = () => {
   return (
     <>
         <h3>User {id} {name!=undefined?<span>- {name}</span>:<></>}</h3>
+        
         <Link to="/">Back</Link>
     </>
   );
