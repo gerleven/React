@@ -16,8 +16,10 @@
 .App {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 70%;
   min-height: 100vh;
+  background-color: rgb(245, 254, 255);
+  margin: 0 auto;
 }
 
 .App-header {
@@ -28,4 +30,14 @@
 .App-header img {
   max-width: 64px;
   height: auto;
+}
+
+.App-main {
+  width: 90%;
+  min-height: 80vh;
+  background-color: #fff;
+  margin: 0 auto;
+  border: solid 1px rgb(230, 237, 238);
+  border-radius: 15px;
+  padding: 20px;
 }

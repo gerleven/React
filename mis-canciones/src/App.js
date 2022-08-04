@@ -4,7 +4,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import {
   BrowserRouter,
   Routes,
-  Route,
   NavLink,
   Link,
   Navigate,
@@ -12,8 +11,12 @@ import {
   useParams,
   useNavigate,
   useLocation,
+  Route,
 } from "react-router-dom";
 import Header from "./Components/Header";
+import Eror404 from "./Pages/Error404";
+import Home from "./Pages/Home";
+import Cancion from "./Pages/Cancion";
 
 function App() {
   return (
@@ -21,11 +24,12 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
+
           <main className="App-main">
             <Routes>
-              {/* <Route></Route>
-              <Route></Route>
-              <Route></Route> */}
+              <Route path="/" element={<Home/>}/>
+              <Route path="/cancion/:id" element={<Cancion/>}/>
+              <Route path="*" element={<Eror404/>}/>
             </Routes>
           </main>
         </div>
