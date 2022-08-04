@@ -1,9 +1,10 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import HomeIcon from "@mui/icons-material/Home";
 
 const Eror404 = () => {
   const url = useLocation();
@@ -17,7 +18,13 @@ const Eror404 = () => {
             navigate("/");
           }}
           action={
-            <Button color="inherit" size="small" onClick={()=>{navigate("/")}}>
+            <Button
+              color="inherit"
+              size="small"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               Volver
             </Button>
           }
@@ -26,6 +33,13 @@ const Eror404 = () => {
           La url <b>'{url.pathname}'</b> no fue encontrada
         </Alert>
       </Stack>
+      <div style={{ margin: "1rem auto", textAlign: "center" }}>
+        <Link to="/">
+          <Button variant="outlined" startIcon={<HomeIcon />}>
+            Volver
+          </Button>
+        </Link>
+      </div>
     </>
   );
 };
