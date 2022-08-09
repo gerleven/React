@@ -18,6 +18,7 @@ import Eror404 from "./Pages/Error404";
 import Home from "./Pages/Home";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
+import Buscador from "./Components/Buscador";
 
 function App() {
   //Variables
@@ -25,7 +26,7 @@ function App() {
   let searchInit = {
     artist: "",
     songs: "",
-    request: false
+    request: false,
   };
 
   //Variables de estado
@@ -39,7 +40,7 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
-
+          <Buscador/>
           <main className="App-main">
             <Routes>
               <Route path="/" element={<Home />} />
