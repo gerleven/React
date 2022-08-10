@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
-import { unstable_createMuiStrictModeTheme } from '@mui/material/styles';
+import { unstable_createMuiStrictModeTheme } from "@mui/material/styles";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+// import { makeStyles } from "@mui/material/styles";
 
 const theme1 = unstable_createMuiStrictModeTheme();
 
@@ -19,6 +20,19 @@ const theme = createTheme({
     // },
   },
 });
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: "flex",
+//     justifyContent: "center",
+//     alignItems: "center",
+
+//     "& > *": {
+//       margin: theme.spacing(0),
+//       width: "auto",
+//     },
+//   },
+// }));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

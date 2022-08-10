@@ -8,7 +8,19 @@ import { AccountCircle } from "@mui/icons-material";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import InputAdornment from "@mui/material/InputAdornment";
 
-const Buscador = () => {
+const Buscador = ({ search, setSearch, setError }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSearch({
+      artist: e.target.artist.value,
+      song: e.target.song.value,
+      request: true,
+    });
+  };
+  const handleReset = (e) => {
+    alert("Reseteando");
+  };
+
   return (
     <Box
       component="form"
@@ -23,8 +35,15 @@ const Buscador = () => {
         alignItems: "center",
       }}
       autoComplete="on"
+      onSubmit={handleSubmit}
+      onReset={handleReset}
     >
-      <IconButton color="primary" size="small" type="reset" style={{width: "30px", marginTop: "30px"}}>
+      <IconButton
+        color="primary"
+        size="small"
+        type="reset"
+        style={{ width: "30px", marginTop: "30px" }}
+      >
         <HomeIcon />
       </IconButton>
 
@@ -41,6 +60,15 @@ const Buscador = () => {
             </InputAdornment>
           ),
         }}
+        value={search.artist}
+        onChange={(e)=>{
+          setSearch({
+            artist: e.target.value,
+            song: search.song,
+            request: true,
+          })
+        }}
+
       />
       <TextField
         id="song"
@@ -55,8 +83,21 @@ const Buscador = () => {
             </InputAdornment>
           ),
         }}
+        value={search.song}
+        onChange={(e)=>{
+          setSearch({
+            artist: search.artist,
+            song: e.target.value,
+            request: true,
+          })
+        }}
       />
-      <IconButton color="primary" size="small" type="submit" style={{width: "30px", marginTop: "30px"}}>
+      <IconButton
+        color="primary"
+        size="small"
+        type="submit"
+        style={{ width: "30px", marginTop: "30px" }}
+      >
         <SearchIcon />
       </IconButton>
     </Box>

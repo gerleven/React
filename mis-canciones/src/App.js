@@ -25,7 +25,7 @@ function App() {
   let mySongsInit = JSON.parse(localStorage.getItem("mySongs"));
   let searchInit = {
     artist: "",
-    songs: "",
+    song: "",
     request: false,
   };
 
@@ -40,7 +40,7 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
-          <Buscador/>
+          <Buscador search={search} setSearch={setSearch} error={setError} />
           <main className="App-main">
             <Routes>
               <Route path="/" element={<Home />} />
