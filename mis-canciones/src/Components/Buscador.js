@@ -18,7 +18,12 @@ const Buscador = ({ search, setSearch, setError }) => {
     });
   };
   const handleReset = (e) => {
-    alert("Reseteando");
+    setSearch({
+      artist: "",
+      song: "",
+      request: false,
+    });
+    setError(false);
   };
 
   return (
