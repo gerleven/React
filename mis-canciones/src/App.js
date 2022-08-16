@@ -22,7 +22,7 @@ import Buscador from "./Components/Buscador";
 
 function App() {
   //Variables
-  let mySongsInit = JSON.parse(localStorage.getItem("mySongs"));
+  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
   let searchInit = {
     artist: "",
     song: "",
@@ -34,6 +34,39 @@ function App() {
   const [search, setSearch] = useState(searchInit);
   const [currentSong, setCurrentSong] = useState({});
   const [error, setError] = useState(false);
+
+  //Funcion de efecto
+  useEffect(()=>{
+    JSON.parse(localStorage.getItem("mySongs"))
+
+    const getData= async ()=>{
+      const {artist, song} = search;
+
+      
+      try {
+        let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${search.artist}`;
+        let songApi = `https://api.lyrics.ovh/v1/${search.artist}/${search.song}`;
+
+        let artistResponse = await (await fetch(artistApi)).json();
+        let songResponse = await (await fetch(songApi)).json();
+
+        console.log(artistResponse,songResponse);
+        
+      } catch (error) {
+        console.log("error: ",error);
+        setSearch({...search}.request=false)
+      }
+
+    }
+
+    if(search.request){
+      getData();
+    }
+    else{
+      return; //We don't need to unsbscribe because it is a public API
+    }
+
+  }, [search]);
 
   return (
     <BrowserRouter>

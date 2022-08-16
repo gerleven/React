@@ -12,8 +12,8 @@ const Buscador = ({ search, setSearch, setError }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSearch({
-      artist: e.target.artist.value,
-      song: e.target.song.value,
+      artist: search.artist,
+      song: search.song,
       request: true,
     });
   };
@@ -38,11 +38,16 @@ const Buscador = ({ search, setSearch, setError }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        // borderRadius: "15px",
+        // border: "1px solid grey",
+        // width: "60%",
+        // margin: "0 auto",
       }}
       autoComplete="on"
       onSubmit={handleSubmit}
       onReset={handleReset}
     >
+      {/* Home Button */}
       <IconButton
         color="primary"
         size="small"
@@ -52,6 +57,7 @@ const Buscador = ({ search, setSearch, setError }) => {
         <HomeIcon />
       </IconButton>
 
+      {/* Artist  Field */}
       <TextField
         id="artist"
         name="artist"
@@ -66,21 +72,23 @@ const Buscador = ({ search, setSearch, setError }) => {
           ),
         }}
         value={search.artist}
-        onChange={(e)=>{
+        onChange={(e) => {
           setSearch({
             artist: e.target.value,
             song: search.song,
-            request: true,
-          })
+            request: false,
+          });
         }}
-
       />
+
+      {/* Song Field: */}
       <TextField
         id="song"
         name="song"
         label="Cancion"
         variant="standard"
         required
+
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -89,14 +97,17 @@ const Buscador = ({ search, setSearch, setError }) => {
           ),
         }}
         value={search.song}
-        onChange={(e)=>{
+
+        onChange={(e) => {
           setSearch({
             artist: search.artist,
             song: e.target.value,
-            request: true,
-          })
+            request: false,
+          });
         }}
       />
+
+      {/* Search Button */}
       <IconButton
         color="primary"
         size="small"
