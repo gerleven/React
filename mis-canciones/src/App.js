@@ -29,10 +29,17 @@ function App() {
     request: false,
   };
 
+  let currentSongInit = {
+    artist: "",
+    avatar: "",
+    song: "",
+    lyric: "",
+  }
+
   //Variables de estado
   const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf
   const [search, setSearch] = useState(searchInit);
-  const [currentSong, setCurrentSong] = useState({});
+  const [currentSong, setCurrentSong] = useState(currentSongInit);
   const [error, setError] = useState(false);
 
   //Funcion de efecto
@@ -51,6 +58,13 @@ function App() {
         let songResponse = await (await fetch(songApi)).json();
 
         console.log(artistResponse,songResponse);
+
+        setCurrentSong({
+          artist: artistResponse.artists[0].strArtist,
+          avatar: artistResponse.artists[0].strArtistThumb,
+          song,
+          lyric: songResponse.lyrics,
+        });
         
       } catch (error) {
         console.log("error: ",error);
