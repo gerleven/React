@@ -19,6 +19,7 @@ import Home from "./Pages/Home";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
+import Letra from "./Components/Letra";
 
 function App() {
   //Variables
@@ -34,7 +35,7 @@ function App() {
     avatar: "",
     song: "",
     lyric: "",
-  }
+  };
 
   //Variables de estado
   const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf
@@ -43,43 +44,46 @@ function App() {
   const [error, setError] = useState(false);
 
   //Funcion de efecto
-  useEffect(()=>{
-    JSON.parse(localStorage.getItem("mySongs"))
+  useEffect(() => {
+    JSON.parse(localStorage.getItem("mySongs"));
 
-    const getData= async ()=>{
-      const {artist, song} = search;
+    const getData = async () => {
+      const { artist, song } = search;
 
-      
       try {
-        let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${search.artist}`;
-        let songApi = `https://api.lyrics.ovh/v1/${search.artist}/${search.song}`;
+        let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
+        //let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
         let artistResponse = await (await fetch(artistApi)).json();
-        let songResponse = await (await fetch(songApi)).json();
+        //let songResponse = await (await fetch(songApi)).json();
+        let songResponse = {
+          lyrics: "Lyrics not found",
+        };
 
-        console.log(artistResponse,songResponse);
+        console.log(artistResponse, songResponse);
 
         setCurrentSong({
           artist: artistResponse.artists[0].strArtist,
           avatar: artistResponse.artists[0].strArtistThumb,
           song,
-          lyric: songResponse.lyrics,
+          lyric:
+            songResponse.lyrics != undefined
+              ? songResponse.lyrics
+              : songResponse.error,
         });
-        
+        let a = currentSong;
       } catch (error) {
-        console.log("error: ",error);
-        setSearch({...search}.request=false)
+        debugger;
+        console.log("error: ", error);
+        setSearch(({ ...search }.request = false));
       }
+    };
 
-    }
-
-    if(search.request){
+    if (search.request) {
       getData();
-    }
-    else{
+    } else {
       return; //We don't need to unsbscribe because it is a public API
     }
-
   }, [search]);
 
   return (
@@ -87,7 +91,17 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
-          <Buscador search={search} setSearch={setSearch} error={setError} />
+          <Buscador search={search} setSearch={setSearch} setError={setError} />
+          {!search.request ? null : (
+            <Letra
+              currentSong={currentSong}
+              setCurrentSong={setCurrentSong}
+              mySongs={mySongs}
+              setMySongs={setMySongs}
+              setSearch={setSearch}
+            />
+          )}
+
           <main className="App-main">
             <Routes>
               <Route path="/" element={<Home />} />

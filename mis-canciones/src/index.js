@@ -19,6 +19,18 @@ const theme = createTheme({
     //   main: red[500],
     // },
   },
+  components:{
+    MuiCard:{
+      styleOverrides:{
+        root:{
+          '&.Mui-focused': {
+            borderWidth: 1,
+          }
+        }
+      }
+    }
+  }
+
 });
 
 // const useStyles = makeStyles((theme) => ({
