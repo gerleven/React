@@ -1,0 +1,17 @@
+/* ListaCnaciones: */
+.root {
+  flex-grow: 1;
+  max-width: 752;
+  margin: auto;
+}
+.demo {
+  background-color: #fff;
+}
+.title {
+  margin: 4, 0, 2;
+}
+.alert {
+  font-size: 1.5 rem;
+  justify-content: center;
+  align-items: center;
+}

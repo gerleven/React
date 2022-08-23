@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { styled } from "@mui/material/styles";
-import "../App.css";
+import "./Letra/Letra.css";
 
 const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
 

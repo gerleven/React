@@ -20,6 +20,7 @@ import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
 import Letra from "./Components/Letra";
+import ListaCanciones from "./Components/ListaCanciones";
 
 function App() {
   //Variables
@@ -92,6 +93,7 @@ function App() {
         <div className="App">
           <Header />
           <Buscador search={search} setSearch={setSearch} setError={setError} />
+          <ListaCanciones mySongs={mySongs} setMySongs={setMySongs}/>
           {!search.request ? null : (
             <Letra
               currentSong={currentSong}
