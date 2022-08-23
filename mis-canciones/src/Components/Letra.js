@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { styled } from "@mui/material/styles";
+import "../App.css";
 
 const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
 
@@ -15,7 +16,6 @@ const Letra = ({
   setMySongs,
   setSearch,
 }) => {
-
   const classes = {
     root: {
       maxWidth: 800,
@@ -39,14 +39,15 @@ const Letra = ({
     },
   };
 
-  const handleClick = ()=>{
-    
-  }
+  const handleClick = () => {
+    alert("Not implemented yet!");
+  };
 
   return (
-    <MyCard>
+    <MyCard className="root">
       <CardActionArea>
         <CardMedia
+          className="media"
           component="img"
           height="140"
           image={currentSong.avatar}
@@ -54,15 +55,15 @@ const Letra = ({
           title={currentSong.artist}
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
+          <Typography gutterBottom variant="h4" component="h2" className="title">
             {currentSong.artist + " - " + currentSong.song}
           </Typography>
-          <Typography variant="body2" color="text.secondary" component="p">
+          <Typography variant="body2" color="text.secondary" component="p" className="lyric">
             {currentSong.lyric}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className="addBtn">
         <Button size="small" color="primary" onClick={handleClick}>
           Agregar
         </Button>
