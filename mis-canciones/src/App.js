@@ -67,10 +67,10 @@ function App() {
               ? songResponse.lyrics
               : songResponse.error,
         });
-        let a = currentSong;
       } catch (error) {
         console.log("error: ", error);
         setSearch(({ ...search }.request = false));
+        setError(error);
       }
     };
 

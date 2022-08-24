@@ -34,7 +34,7 @@ const Letra = ({ currentSong, setCurrentSong, mySongs, setMySongs, setSearch }) 
   // };
 
   const handleClick = (event) => {
-    setCurrentSong({ artist: "", avatar: "", song: "", lyric: "" });
+    setCurrentSong({});
     setSearch({ artist: "", song: "", request: false });
     setMySongs([...mySongs, currentSong]);
   };
