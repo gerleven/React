@@ -8,6 +8,17 @@ import { AccountCircle } from "@mui/icons-material";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
 import InputAdornment from "@mui/material/InputAdornment";
 
+const buscadorStyles = {
+  "& > :not(style)": { m: 1, width: "25ch" },
+  "& > *": {
+    margin: 0,
+    width: "auto",
+  },
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
+
 const Buscador = ({ search, setSearch, setError }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,6 +28,7 @@ const Buscador = ({ search, setSearch, setError }) => {
       request: true,
     });
   };
+
   const handleReset = (e) => {
     setSearch({
       artist: "",
@@ -29,20 +41,7 @@ const Buscador = ({ search, setSearch, setError }) => {
   return (
     <Box
       component="form"
-      sx={{
-        "& > :not(style)": { m: 1, width: "25ch" },
-        "& > *": {
-          margin: 0,
-          width: "auto",
-        },
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        // borderRadius: "15px",
-        // border: "1px solid grey",
-        // width: "60%",
-        // margin: "0 auto",
-      }}
+      sx={buscadorStyles}
       autoComplete="on"
       onSubmit={handleSubmit}
       onReset={handleReset}
@@ -88,7 +87,6 @@ const Buscador = ({ search, setSearch, setError }) => {
         label="Cancion"
         variant="standard"
         required
-
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -97,7 +95,6 @@ const Buscador = ({ search, setSearch, setError }) => {
           ),
         }}
         value={search.song}
-
         onChange={(e) => {
           setSearch({
             artist: search.artist,

@@ -12,10 +12,10 @@ import IconButton from "@mui/material/IconButton";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import "./ListaCanciones/ListaCanciones.css";
+import "./ListaCanciones.css";
 
-const myStyle = {width: "100%"}
-const myProperties = {sx: myStyle, spacing:2}
+const myStyle = { width: "100%" };
+const myProperties = { sx: myStyle, spacing: 2 };
 
 const generate = function (mySongs) {
   return mySongs.map((el, index) => (
@@ -28,13 +28,12 @@ const generate = function (mySongs) {
       }
     >
       <ListItemAvatar>
-        <Avatar alt={el.artist} rsc={el.Avatar}/>
-          
+        <Avatar alt={el.artist} rsc={el.Avatar} />
       </ListItemAvatar>
-      <ListItemText primary={el.song} secondary={el.artist}/>
+      <ListItemText primary={el.song} secondary={el.artist} />
     </ListItem>
   ));
-}
+};
 
 const ListaCanciones = ({ mySongs, setMySongs }) => {
   return (

@@ -5,36 +5,35 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { styled } from "@mui/material/styles";
-import "./Letra/Letra.css";
+import "./Letra.css";
 
 const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
 
 const Letra = ({ currentSong, setCurrentSong, mySongs, setMySongs, setSearch }) => {
-  const classes = {
-    root: {
-      maxWidth: 800,
-      margin: "2rem auto",
-    },
-    lyrics: {
-      whiteSpace: "pre-wrap !important",
-    },
-    title: {
-      marginBottom: "3rem !important",
-    },
-    media: {
-      backgroundSize: "cover",
-      height: "50vh",
-    },
-    addBtn: {
-      justifyContent: "flex-end",
-    },
-    asd: {
-      color: "red",
-    },
-  };
+  // const classes = {
+  //   root: {
+  //     maxWidth: 800,
+  //     margin: "2rem auto",
+  //   },
+  //   lyrics: {
+  //     whiteSpace: "pre-wrap !important",
+  //   },
+  //   title: {
+  //     marginBottom: "3rem !important",
+  //   },
+  //   media: {
+  //     backgroundSize: "cover",
+  //     height: "50vh",
+  //   },
+  //   addBtn: {
+  //     justifyContent: "flex-end",
+  //   },
+  //   asd: {
+  //     color: "red",
+  //   },
+  // };
 
   const handleClick = (event) => {
-    debugger
     setCurrentSong({ artist: "", avatar: "", song: "", lyric: "" });
     setSearch({ artist: "", song: "", request: false });
     setMySongs([...mySongs, currentSong]);

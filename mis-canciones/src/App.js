@@ -19,31 +19,27 @@ import Home from "./Pages/Home";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
-import Letra from "./Components/Letra";
-import ListaCanciones from "./Components/ListaCanciones";
-import Loader from "./Components/Loader";
+import Letra from "./Components/Letra/Letra";
+import ListaCanciones from "./Components/ListaCanciones/ListaCanciones";
+import Loader from "./Components/Loader/Loader";
 
 function App() {
   //Variables
   let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
+
   let searchInit = {
     artist: "",
     song: "",
     request: false,
   };
 
-  let currentSongInit = {
-    artist: "",
-    avatar: "",
-    song: "",
-    lyric: "",
-  };
+  let currentSongInit = {};
 
   //Variables de estado
-  const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf
-  const [search, setSearch] = useState(searchInit);
-  const [currentSong, setCurrentSong] = useState(currentSongInit);
-  const [error, setError] = useState(false);
+  const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf // array vacio o de canciones
+  const [search, setSearch] = useState(searchInit); //inputs del buscador
+  const [currentSong, setCurrentSong] = useState(currentSongInit); //Resultado de la api al buscar con los inputs del search
+  const [error, setError] = useState(false); //boolean
 
   //Funcion de efecto
   useEffect(() => {
@@ -90,24 +86,27 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
-          
           <Buscador search={search} setSearch={setSearch} setError={setError} />
+          {search.request ? ( //Si se hizo una busqueda
+            error ? (
+              <>error</>
+            ) : Object.keys(currentSong).length == 0 ? (
+              <Loader />
+            ) : (
+              <Letra
+                currentSong={currentSong}
+                setCurrentSong={setCurrentSong}
+                mySongs={mySongs}
+                setMySongs={setMySongs}
+                setSearch={setSearch}
+              />
+            )
+          ) :             //No se hice una busqueda
+            <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
+          }
 
-          {true?<></>:<></>}
-          Object
-          <Loader/>
-          <ListaCanciones mySongs={mySongs} setMySongs={setMySongs}/>
           
-          {!search.request ? null : (
-            <Letra
-              currentSong={currentSong}
-              setCurrentSong={setCurrentSong}
-              mySongs={mySongs}
-              setMySongs={setMySongs}
-              setSearch={setSearch}
-            />
-          )}
-
+          
           <main className="App-main">
             <Routes>
               <Route path="/" element={<Home />} />
