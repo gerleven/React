@@ -14,6 +14,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 import "./ListaCanciones/ListaCanciones.css";
 
+const myStyle = {width: "100%"}
+const myProperties = {sx: myStyle, spacing:2}
+
 const generate = function (mySongs) {
   return mySongs.map((el, index) => (
     <ListItem
@@ -32,9 +35,6 @@ const generate = function (mySongs) {
     </ListItem>
   ));
 }
-
-const myStyle = {width: "100%"}
-const myProperties = {sx: myStyle, spacing:2}
 
 const ListaCanciones = ({ mySongs, setMySongs }) => {
   return (

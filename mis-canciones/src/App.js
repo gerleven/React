@@ -21,6 +21,7 @@ import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
 import Letra from "./Components/Letra";
 import ListaCanciones from "./Components/ListaCanciones";
+import Loader from "./Components/Loader";
 
 function App() {
   //Variables
@@ -94,6 +95,7 @@ function App() {
 
           {true?<></>:<></>}
           Object
+          <Loader/>
           <ListaCanciones mySongs={mySongs} setMySongs={setMySongs}/>
           
           {!search.request ? null : (

@@ -1,22 +1,20 @@
 import React from "react";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
+import "./Loader/Loader.css";
+import { Box } from "@mui/system";
 
-// const root = 
-//   {
-//     display: "flex",
-//     justifyContent: "center",
-//     alignItems: "center",
-//     minHeight: "50vh",
-//     transform: "scale(4)"
-//   }
+const circularProgressStyle2 = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  transform: "scale(6)",
+};
 
 const Loader = () => {
-  
   return (
-    // <div className={root}>
-    <div>
+    <Box className="circularProgressStyle" sx={circularProgressStyle2}>
       <CircularProgress />
-    </div>
+    </Box>
   );
 };
 
