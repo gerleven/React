@@ -61,8 +61,6 @@ function App() {
           lyrics: "Lyrics not found",
         };
 
-        console.log(artistResponse, songResponse);
-
         setCurrentSong({
           artist: artistResponse.artists[0].strArtist,
           avatar: artistResponse.artists[0].strArtistThumb,
@@ -74,7 +72,6 @@ function App() {
         });
         let a = currentSong;
       } catch (error) {
-        debugger;
         console.log("error: ", error);
         setSearch(({ ...search }.request = false));
       }
@@ -92,8 +89,13 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
+          
           <Buscador search={search} setSearch={setSearch} setError={setError} />
+
+          {true?<></>:<></>}
+          Object
           <ListaCanciones mySongs={mySongs} setMySongs={setMySongs}/>
+          
           {!search.request ? null : (
             <Letra
               currentSong={currentSong}

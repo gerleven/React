@@ -9,13 +9,7 @@ import "./Letra/Letra.css";
 
 const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
 
-const Letra = ({
-  currentSong,
-  setCurrentSong,
-  mySongs,
-  setMySongs,
-  setSearch,
-}) => {
+const Letra = ({ currentSong, setCurrentSong, mySongs, setMySongs, setSearch }) => {
   const classes = {
     root: {
       maxWidth: 800,
@@ -39,8 +33,11 @@ const Letra = ({
     },
   };
 
-  const handleClick = () => {
-    alert("Not implemented yet!");
+  const handleClick = (event) => {
+    debugger
+    setCurrentSong({ artist: "", avatar: "", song: "", lyric: "" });
+    setSearch({ artist: "", song: "", request: false });
+    setMySongs([...mySongs, currentSong]);
   };
 
   return (
@@ -55,10 +52,20 @@ const Letra = ({
           title={currentSong.artist}
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2" className="title">
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="h2"
+            className="title"
+          >
             {currentSong.artist + " - " + currentSong.song}
           </Typography>
-          <Typography variant="body2" color="text.secondary" component="p" className="lyric">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            component="p"
+            className="lyric"
+          >
             {currentSong.lyric}
           </Typography>
         </CardContent>
