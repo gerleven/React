@@ -27,13 +27,12 @@ import { Alert, AlertTitle } from "@mui/material";
 
 function App() {
   //Variables
-  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [];
-
-  let searchInit = {
-    artist: "",
-    song: "",
-    request: false,
-  };
+  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [],
+    searchInit = {
+      artist: "",
+      song: "",
+      request: false,
+    };
 
   let currentSongInit = {};
 
@@ -46,7 +45,7 @@ function App() {
 
   //Funcion de efecto
   useEffect(() => {
-    JSON.parse(localStorage.getItem("mySongs"));
+    localStorage.setItem("mySongs", JSON.stringify(mySongs));
 
     const getData = async () => {
       const { artist, song } = search;
