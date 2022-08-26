@@ -22,6 +22,8 @@ import Buscador from "./Components/Buscador";
 import Letra from "./Components/Letra/Letra";
 import ListaCanciones from "./Components/ListaCanciones/ListaCanciones";
 import Loader from "./Components/Loader/Loader";
+import Stack from "@mui/material/Stack";
+import { Alert, AlertTitle } from "@mui/material";
 
 function App() {
   //Variables
@@ -98,10 +100,24 @@ function App() {
             setError={setError}
             setCurrentSong={setCurrentSong}
           />
-          
+
           {search.request ? ( //Si se hizo una busqueda
             error ? (
-              <p>Error</p>
+              <Stack className="stackAlert">
+                <Alert severity="error">
+                  <AlertTitle>
+                    No hubo resultados para la siguiente busqueda:
+                  </AlertTitle>
+                  <ul>
+                    <li>
+                      Artista: <b>{search.artist}</b>
+                    </li>
+                    <li>
+                      Canción: <b>{search.song}</b>
+                    </li>
+                  </ul>
+                </Alert>
+              </Stack>
             ) : loading ? (
               <Loader />
             ) : (
@@ -117,7 +133,7 @@ function App() {
             //No se hizo una busqueda
             <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
           )}
-          
+
           <main className="App-main">
             <Routes>
               <Route path="/" element={<Home />} />

@@ -11,19 +11,32 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import FolderIcon from "@mui/icons-material/Folder";
 import DeleteIcon from "@mui/icons-material/Delete";
+import LaunchIcon from '@mui/icons-material/Launch';
 
 import "./ListaCanciones.css";
+import "../../App.css";
+import { Link } from "react-router-dom";
 
-const myStyle = { width: "100%" };
-const myProperties = { sx: myStyle, spacing: 2 };
+// const myStyle = {
+//   width: "60%",
+//   margin: "auto",
+//   padding: "30px"
+// };
+// const myProperties = { sx: myStyle, spacing: 2 };
+// <Stack {...myProperties}>Example</Stack>
 
 const generate = function (mySongs) {
   return mySongs.map((el, index) => (
     <ListItem
       key={index}
       secondaryAction={
-        <IconButton edge="end" aria-label="delete">
-          <DeleteIcon />
+        <IconButton
+          edge="end"
+          aria-label="delete"
+          component={Link}
+          to={`cancion/${index}`}
+        >
+          <LaunchIcon />
         </IconButton>
       }
     >
@@ -39,10 +52,8 @@ const ListaCanciones = ({ mySongs, setMySongs }) => {
   return (
     <div>
       {mySongs.length == 0 ? (
-        <Stack {...myProperties}>
-          <Alert severity="error" className="alert">
-            Aún no tienes canciones guardadas
-          </Alert>
+        <Stack className="stackAlert">
+          <Alert severity="info">Aún no tienes canciones guardadas</Alert>
         </Stack>
       ) : (
         <List>{generate(mySongs)}</List>

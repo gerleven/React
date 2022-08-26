@@ -30,84 +30,14 @@
   height: auto;
 }
 
-/* Mi version: */
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-header img {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  min-height: 100vh;
-  background-color: rgb(245, 254, 255);
-  margin: 0 auto;
-}
-
-.App-header {
-  display: flex;
-  justify-content: center;
-}
-
-.App-header img {
-  max-width: 64px;
-  height: auto;
-}
-
-.App-main {
-  width: 90%;
-  min-height: 80vh;
-  background-color: #fff;
-  margin: 0 auto;
-  border: solid 1px rgb(230, 237, 238);
-  border-radius: 15px;
-  padding: 20px;
-} */
-
-/* Letra: */
-/* .root {
-  max-width: 800;
-  margin: "2rem auto";
-}
-.lyrics {
-  white-space: pre-wrap !important;
-}
-.title {
-  margin-bottom: "3rem !important";
-}
-.media {
-  background-size: cover;
-  height: "50vh";
-}
-.addBtn {
-  justify-content: flex-end;
-} */
-
-/* ListaCnaciones: */
-/* .root {
-  flex-grow: 1;
-  max-width: 752;
-  margin: "auto";
-}
-.demo {
-  background-color: theme.palette.background.paper
-}
-.title {
-  margin: theme.spacing(4, 0, 2)
-}
 .alert {
-  font-size: "1.5rem";
-  justify-content: "center";
-  align-items: "center";
-} */
+  min-width: 35%;
+  margin: 0 auto;
+}
+
+.stackAlert {
+  min-width: 35%;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 30px;
+}
