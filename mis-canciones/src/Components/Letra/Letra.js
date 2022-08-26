@@ -16,11 +16,10 @@ const Letra = ({
   setMySongs,
   setSearch,
 }) => {
-
   const handleClickAgregar = (event) => {
+    setMySongs([...mySongs, currentSong]);
     setCurrentSong({});
     setSearch({ artist: "", song: "", request: false });
-    setMySongs([...mySongs, currentSong]);
   };
 
   return (

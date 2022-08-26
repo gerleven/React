@@ -28,7 +28,7 @@ const generate = function (mySongs) {
       }
     >
       <ListItemAvatar>
-        <Avatar alt={el.artist} rsc={el.Avatar} />
+        <Avatar alt={el.artist} src={el.avatar} />
       </ListItemAvatar>
       <ListItemText primary={el.song} secondary={el.artist} />
     </ListItem>
