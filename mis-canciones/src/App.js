@@ -40,6 +40,7 @@ function App() {
   const [search, setSearch] = useState(searchInit); //inputs del buscador
   const [currentSong, setCurrentSong] = useState(currentSongInit); //Resultado de la api al buscar con los inputs del search
   const [error, setError] = useState(false); //boolean
+  const [loading, setLoading] = useState(false);
 
   //Funcion de efecto
   useEffect(() => {
@@ -47,6 +48,9 @@ function App() {
 
     const getData = async () => {
       const { artist, song } = search;
+      setLoading(true);
+      setCurrentSong({});
+      setError(false);
 
       try {
         let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
@@ -67,10 +71,12 @@ function App() {
               ? songResponse.lyrics
               : songResponse.error,
         });
+        setLoading(false);
       } catch (error) {
         console.log("error: ", error);
-        setSearch(({ ...search }.request = false));
-        setError(error);
+        setError(true);
+        setLoading(false);
+        setCurrentSong(currentSongInit);
       }
     };
 
@@ -86,11 +92,17 @@ function App() {
       <CssBaseline>
         <div className="App">
           <Header />
-          <Buscador search={search} setSearch={setSearch} setError={setError} />
+          <Buscador
+            search={search}
+            setSearch={setSearch}
+            setError={setError}
+            setCurrentSong={setCurrentSong}
+          />
+          
           {search.request ? ( //Si se hizo una busqueda
             error ? (
-              <>error</>
-            ) : Object.keys(currentSong).length == 0 ? (
+              <p>Error</p>
+            ) : loading ? (
               <Loader />
             ) : (
               <Letra
@@ -101,11 +113,10 @@ function App() {
                 setSearch={setSearch}
               />
             )
-          ) :             //No se hice una busqueda
+          ) : (
+            //No se hizo una busqueda
             <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
-          }
-
-          
+          )}
           
           <main className="App-main">
             <Routes>

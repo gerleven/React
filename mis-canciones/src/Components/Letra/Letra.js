@@ -9,31 +9,15 @@ import "./Letra.css";
 
 const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
 
-const Letra = ({ currentSong, setCurrentSong, mySongs, setMySongs, setSearch }) => {
-  // const classes = {
-  //   root: {
-  //     maxWidth: 800,
-  //     margin: "2rem auto",
-  //   },
-  //   lyrics: {
-  //     whiteSpace: "pre-wrap !important",
-  //   },
-  //   title: {
-  //     marginBottom: "3rem !important",
-  //   },
-  //   media: {
-  //     backgroundSize: "cover",
-  //     height: "50vh",
-  //   },
-  //   addBtn: {
-  //     justifyContent: "flex-end",
-  //   },
-  //   asd: {
-  //     color: "red",
-  //   },
-  // };
+const Letra = ({
+  currentSong,
+  setCurrentSong,
+  mySongs,
+  setMySongs,
+  setSearch,
+}) => {
 
-  const handleClick = (event) => {
+  const handleClickAgregar = (event) => {
     setCurrentSong({});
     setSearch({ artist: "", song: "", request: false });
     setMySongs([...mySongs, currentSong]);
@@ -70,7 +54,7 @@ const Letra = ({ currentSong, setCurrentSong, mySongs, setMySongs, setSearch }) 
         </CardContent>
       </CardActionArea>
       <CardActions className="addBtn">
-        <Button size="small" color="primary" onClick={handleClick}>
+        <Button size="small" color="primary" onClick={handleClickAgregar}>
           Agregar
         </Button>
       </CardActions>

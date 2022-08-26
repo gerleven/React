@@ -19,9 +19,10 @@ const buscadorStyles = {
   alignItems: "center",
 };
 
-const Buscador = ({ search, setSearch, setError }) => {
+const Buscador = ({ search, setSearch, setError, setCurrentSong }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    setCurrentSong({});
     setSearch({
       artist: search.artist,
       song: search.song,
