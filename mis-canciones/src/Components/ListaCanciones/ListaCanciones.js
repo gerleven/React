@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 import AlertDialog from "../AlertDialog";
 
 import "../../App.css";
-import "./ListaCanciones.css";
 
 // const myStyle = {
 //   width: "60%",
@@ -31,7 +30,7 @@ const deleteSong = () => {
 
 const generate = function (mySongs) {
   return mySongs.map((el, index) => (
-    <ListItem key={index}>
+    <ListItem key={index} className="ListItemCancionDemo">
       <ListItemAvatar>
         <Avatar alt={el.artist} src={el.avatar} />
       </ListItemAvatar>
@@ -54,7 +53,7 @@ const ListaCanciones = ({ mySongs, setMySongs }) => {
           <Alert severity="info">Aún no tienes canciones guardadas</Alert>
         </Stack>
       ) : (
-        <List>{generate(mySongs)}</List>
+        <List className="ListItemCancionRoot">{generate(mySongs)}</List>
       )}
     </div>
   );

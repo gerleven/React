@@ -16,8 +16,9 @@
 .App {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  max-width: 752px;
   min-height: 100vh;
+  margin: 0 auto;
 }
 
 .App-header {
@@ -30,14 +31,36 @@
   height: auto;
 }
 
+.App-backgroundColor {
+  /* background-color: rgb(247, 247, 247); */
+  background-color: #fff;
+}
+
 .alert {
   min-width: 35%;
   margin: 0 auto;
 }
 
 .stackAlert {
-  min-width: 35%;
-  max-width: 50%;
+  min-width: 50%;
+  max-width: 80%;
   margin: 0 auto;
   padding: 30px;
+}
+
+/* ListaCnaciones: */
+.ListItemCancionRoot {
+  flex-grow: 1;
+  max-width: 100%;
+  margin: auto;
+}
+.ListItemCancionDemo {
+  background-color: rgb(242, 253, 255);
+  /* background-color: #fff; */
+  margin: 10px;
+  border-radius: 10px;
+  /* border: rgb(201, 241, 255) 1px solid; */
+}
+.ListItemCancionTitle {
+  margin: 4, 0, 2;
 }

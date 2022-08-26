@@ -91,55 +91,57 @@ function App() {
   return (
     <BrowserRouter>
       <CssBaseline>
-        <div className="App">
-          <Header />
-          <Buscador
-            search={search}
-            setSearch={setSearch}
-            setError={setError}
-            setCurrentSong={setCurrentSong}
-          />
+        <div className="App-backgroundColor">
+          <div className="App">
+            <Header />
+            <Buscador
+              search={search}
+              setSearch={setSearch}
+              setError={setError}
+              setCurrentSong={setCurrentSong}
+            />
 
-          {search.request ? ( //Si se hizo una busqueda
-            error ? (
-              <Stack className="stackAlert">
-                <Alert severity="error">
-                  <AlertTitle>
-                    No hubo resultados para la siguiente busqueda:
-                  </AlertTitle>
-                  <ul>
-                    <li>
-                      Artista: <b>{search.artist}</b>
-                    </li>
-                    <li>
-                      Canción: <b>{search.song}</b>
-                    </li>
-                  </ul>
-                </Alert>
-              </Stack>
-            ) : loading ? (
-              <Loader />
+            {search.request ? ( //Si se hizo una busqueda
+              error ? (
+                <Stack className="stackAlert">
+                  <Alert severity="error">
+                    <AlertTitle>
+                      No hubo resultados para la siguiente busqueda:
+                    </AlertTitle>
+                    <ul>
+                      <li>
+                        Artista: <b>{search.artist}</b>
+                      </li>
+                      <li>
+                        Canción: <b>{search.song}</b>
+                      </li>
+                    </ul>
+                  </Alert>
+                </Stack>
+              ) : loading ? (
+                <Loader />
+              ) : (
+                <Letra
+                  currentSong={currentSong}
+                  setCurrentSong={setCurrentSong}
+                  mySongs={mySongs}
+                  setMySongs={setMySongs}
+                  setSearch={setSearch}
+                />
+              )
             ) : (
-              <Letra
-                currentSong={currentSong}
-                setCurrentSong={setCurrentSong}
-                mySongs={mySongs}
-                setMySongs={setMySongs}
-                setSearch={setSearch}
-              />
-            )
-          ) : (
-            //No se hizo una busqueda
-            <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
-          )}
+              //No se hizo una busqueda
+              <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
+            )}
 
-          <main className="App-main">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/cancion/:id" element={<Cancion />} />
-              <Route path="*" element={<Eror404 />} />
-            </Routes>
-          </main>
+            <main className="App-main">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/cancion/:id" element={<Cancion />} />
+                <Route path="*" element={<Eror404 />} />
+              </Routes>
+            </main>
+          </div>
         </div>
       </CssBaseline>
     </BrowserRouter>
