@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import DeleteIcon from "@mui/icons-material/Delete";
-import PanToolIcon from '@mui/icons-material/PanTool';
+import PanToolIcon from "@mui/icons-material/PanTool";
 
 const AlertDialog = ({ id, deleteSong }) => {
   const [open, setOpen] = useState(false);
@@ -20,6 +20,8 @@ const AlertDialog = ({ id, deleteSong }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const iconStyles = { marginRight: "5px" };
   return (
     <>
       <IconButton edge="end" onClick={handleOpen}>
@@ -44,11 +46,12 @@ const AlertDialog = ({ id, deleteSong }) => {
               handleClose();
             }}
             color="primary"
+            style={{ marginRight: "5px" }}
           >
-            <DeleteForeverIcon /> SÍ, eliminar
+            <DeleteForeverIcon style={{ ...iconStyles }} /> Eliminar
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
-            <PanToolIcon /> NO, detente
+            <PanToolIcon style={{ ...iconStyles }} /> Cancelar
           </Button>
         </DialogActions>
       </Dialog>

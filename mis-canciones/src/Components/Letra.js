@@ -25,34 +25,33 @@ const Letra = ({
 
   return (
     <MyCard className="LetraRoot">
-      <CardActionArea>
-        <CardMedia
-          className="LetraMedia"
-          component="img"
-          height="20%"
-          image={currentSong.avatar}
-          alt={`${currentSong.artist} picture profile`}
-          title={currentSong.artist}
-        />
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h4"
-            component="h2"
-            className="LetraTitle"
-          >
-            {currentSong.artist + " - " + currentSong.song}
-          </Typography>
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            component="p"
-            className="LetraLyric"
-          >
-            {currentSong.lyric}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+      <CardMedia
+        className="LetraMedia"
+        component="img"
+        height="20%"
+        image={currentSong.avatar}
+        alt={`${currentSong.artist} picture profile`}
+        title={currentSong.artist}
+      />
+      <CardContent>
+        <Typography
+          gutterBottom
+          variant="h4"
+          component="h2"
+          className="LetraTitle"
+        >
+          {currentSong.artist + " - " + currentSong.song}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          component="p"
+          className="LetraLyric"
+        >
+          {currentSong.lyric}
+        </Typography>
+      </CardContent>
+
       <CardActions className="LetraAddBtn">
         <Button size="small" color="primary" onClick={handleClickAgregar}>
           Agregar

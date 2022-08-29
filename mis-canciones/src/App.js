@@ -1,25 +1,13 @@
 import "./App.css";
 import CssBaseline from "@mui/material/CssBaseline";
-// import {BrowserRouter,Routes,Route,NavLink,Link,Navigate,Outlet,useParams,useNavigate,useLocation} from "react-router-dom";
-import {
-  BrowserRouter,
-  Routes,
-  NavLink,
-  Link,
-  Navigate,
-  Outlet,
-  useParams,
-  useNavigate,
-  useLocation,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Eror404 from "./Pages/Error404";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
 import Letra from "./Components/Letra";
-import ListaCanciones from "./Components/ListaCanciones/ListaCanciones";
+import ListaCanciones from "./Components/ListaCanciones";
 import Loader from "./Components/Loader/Loader";
 import Stack from "@mui/material/Stack";
 import { Alert, AlertTitle } from "@mui/material";
@@ -55,7 +43,7 @@ function App() {
 
       try {
         let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-        //let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+        //let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;    //that Api is not working, I'll replace the Lyric by a "Lyrics not found" string.
 
         let artistResponse = await (await fetch(artistApi)).json();
         //let songResponse = await (await fetch(songApi)).json();
@@ -84,7 +72,7 @@ function App() {
     if (search.request) {
       getData();
     } else {
-      return; //We don't need to unsbscribe because it is a public API
+      return;
     }
   }, [search]);
 

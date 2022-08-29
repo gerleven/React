@@ -12,9 +12,9 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { Link } from "react-router-dom";
-import AlertDialog from "../AlertDialog";
+import AlertDialog from "./AlertDialog";
 
-import "../../App.css";
+import "../App.css";
 
 // const myStyle = {
 //   width: "60%",

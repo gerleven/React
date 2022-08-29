@@ -32,34 +32,32 @@ const Cancion = ({ mySongs }) => {
         </Button>
       </div>
       <Card className="LetraRoot">
-        <CardActionArea>
-          <CardMedia
-            className="LetraMedia"
-            component="img"
-            height="20%"
-            image={song.avatar}
-            alt={`${song.artist} picture profile`}
-            title={song.artist}
-          />
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant="h4"
-              component="h2"
-              className="LetraTitle"
-            >
-              {song.artist + " - " + song.song}
-            </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              component="p"
-              className="LetraLyric"
-            >
-              {song.lyric}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
+        <CardMedia
+          className="LetraMedia"
+          component="img"
+          height="20%"
+          image={song.avatar}
+          alt={`${song.artist} picture profile`}
+          title={song.artist}
+        />
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h4"
+            component="h2"
+            className="LetraTitle"
+          >
+            {song.artist + " - " + song.song}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            component="p"
+            className="LetraLyric"
+          >
+            {song.lyric}
+          </Typography>
+        </CardContent>
         <CardActions className="LetraAddBtn">
           <Button size="small" color="primary" onClick={handleHomeButton}>
             Volver
