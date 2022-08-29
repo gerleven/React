@@ -28,7 +28,7 @@ const ListaCanciones = ({ mySongs, setMySongs }) => {
   const deleteSong = (idToDelete) => {
     let newListofSongs = mySongs.filter((song, index) => index != idToDelete);
     setMySongs(newListofSongs);
-    localStorage.setItem("mySongs", JSON.stringify(mySongs));
+    localStorage.setItem("mySongs", JSON.stringify(newListofSongs));
   };
 
   const generate = function () {

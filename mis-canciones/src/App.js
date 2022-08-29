@@ -27,12 +27,13 @@ import { Alert, AlertTitle } from "@mui/material";
 
 function App() {
   //Variables
-  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || [],
-    searchInit = {
-      artist: "",
-      song: "",
-      request: false,
-    };
+  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || []; //{artist,avatar,song,lyric}
+
+  let searchInit = {
+    artist: "",
+    song: "",
+    request: false,
+  };
 
   let currentSongInit = {};
 
@@ -137,7 +138,10 @@ function App() {
             <main className="App-main">
               <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/cancion/:id" element={<Cancion />} />
+                <Route
+                  path="/cancion/:id"
+                  element={<Cancion mySongs={mySongs} />}
+                />
                 <Route path="*" element={<Eror404 />} />
               </Routes>
             </main>

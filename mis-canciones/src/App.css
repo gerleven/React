@@ -65,11 +65,10 @@
   margin: 4, 0, 2;
 }
 
-
 /*Letra*/
 /* Letra: */
 .LetraRoot {
-  margin: 4rem auto;
+  margin: 2rem auto;
 }
 .LetraLyrics {
   white-space: pre-wrap !important;
@@ -83,4 +82,8 @@
 }
 .LetraAddBtn {
   justify-content: flex-end;
+}
+.LetraGoHome {
+  display: flex;
+  justify-content: center;
 }
