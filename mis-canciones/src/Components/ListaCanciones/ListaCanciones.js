@@ -24,28 +24,30 @@ import "../../App.css";
 // const myProperties = { sx: myStyle, spacing: 2 };
 // <Stack {...myProperties}>Example</Stack>
 
-const deleteSong = () => {
-  alert("Eliminar cancion");
-};
-
-const generate = function (mySongs) {
-  return mySongs.map((el, index) => (
-    <ListItem key={index} className="ListItemCancionDemo">
-      <ListItemAvatar>
-        <Avatar alt={el.artist} src={el.avatar} />
-      </ListItemAvatar>
-      <ListItemText primary={el.song} secondary={el.artist} />
-      <ListItemSecondaryAction>
-        <IconButton edge="end" component={Link} to={`cancion/${index}`}>
-          <LaunchIcon />
-        </IconButton>
-        <AlertDialog id={index} deleteSong={deleteSong} />
-      </ListItemSecondaryAction>
-    </ListItem>
-  ));
-};
-
 const ListaCanciones = ({ mySongs, setMySongs }) => {
+  const deleteSong = (idToDelete) => {
+    let newListofSongs = mySongs.filter((song, index) => index != idToDelete);
+    setMySongs(newListofSongs);
+    localStorage.setItem("mySongs", JSON.stringify(mySongs));
+  };
+
+  const generate = function () {
+    return mySongs.map((el, index) => (
+      <ListItem key={index} className="ListItemCancionDemo">
+        <ListItemAvatar>
+          <Avatar alt={el.artist} src={el.avatar} />
+        </ListItemAvatar>
+        <ListItemText primary={el.song} secondary={el.artist} />
+        <ListItemSecondaryAction>
+          <IconButton edge="end" component={Link} to={`cancion/${index}`}>
+            <LaunchIcon />
+          </IconButton>
+          <AlertDialog id={index} deleteSong={deleteSong} />
+        </ListItemSecondaryAction>
+      </ListItem>
+    ));
+  };
+
   return (
     <div>
       {mySongs.length == 0 ? (
@@ -53,7 +55,7 @@ const ListaCanciones = ({ mySongs, setMySongs }) => {
           <Alert severity="info">Aún no tienes canciones guardadas</Alert>
         </Stack>
       ) : (
-        <List className="ListItemCancionRoot">{generate(mySongs)}</List>
+        <List className="ListItemCancionRoot">{generate()}</List>
       )}
     </div>
   );
