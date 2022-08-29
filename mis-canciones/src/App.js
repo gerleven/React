@@ -15,7 +15,6 @@ import {
 } from "react-router-dom";
 import Header from "./Components/Header";
 import Eror404 from "./Pages/Error404";
-import Home from "./Pages/Home";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
@@ -95,49 +94,58 @@ function App() {
         <div className="App-backgroundColor">
           <div className="App">
             <Header />
-            <Buscador
-              search={search}
-              setSearch={setSearch}
-              setError={setError}
-              setCurrentSong={setCurrentSong}
-            />
-
-            {search.request ? ( //Si se hizo una busqueda
-              error ? (
-                <Stack className="stackAlert">
-                  <Alert severity="error">
-                    <AlertTitle>
-                      No hubo resultados para la siguiente busqueda:
-                    </AlertTitle>
-                    <ul>
-                      <li>
-                        Artista: <b>{search.artist}</b>
-                      </li>
-                      <li>
-                        Canción: <b>{search.song}</b>
-                      </li>
-                    </ul>
-                  </Alert>
-                </Stack>
-              ) : loading ? (
-                <Loader />
-              ) : (
-                <Letra
-                  currentSong={currentSong}
-                  setCurrentSong={setCurrentSong}
-                  mySongs={mySongs}
-                  setMySongs={setMySongs}
-                  setSearch={setSearch}
-                />
-              )
-            ) : (
-              //No se hizo una busqueda
-              <ListaCanciones mySongs={mySongs} setMySongs={setMySongs} />
-            )}
 
             <main className="App-main">
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route
+                  path="/"
+                  element={
+                    <>
+                      <Buscador
+                        search={search}
+                        setSearch={setSearch}
+                        setError={setError}
+                        setCurrentSong={setCurrentSong}
+                      />
+
+                      {search.request ? ( //Si se hizo una busqueda
+                        error ? (
+                          <Stack className="stackAlert">
+                            <Alert severity="error">
+                              <AlertTitle>
+                                No hubo resultados para la siguiente busqueda:
+                              </AlertTitle>
+                              <ul>
+                                <li>
+                                  Artista: <b>{search.artist}</b>
+                                </li>
+                                <li>
+                                  Canción: <b>{search.song}</b>
+                                </li>
+                              </ul>
+                            </Alert>
+                          </Stack>
+                        ) : loading ? (
+                          <Loader />
+                        ) : (
+                          <Letra
+                            currentSong={currentSong}
+                            setCurrentSong={setCurrentSong}
+                            mySongs={mySongs}
+                            setMySongs={setMySongs}
+                            setSearch={setSearch}
+                          />
+                        )
+                      ) : (
+                        //No se hizo una busqueda
+                        <ListaCanciones
+                          mySongs={mySongs}
+                          setMySongs={setMySongs}
+                        />
+                      )}
+                    </>
+                  }
+                ></Route>
                 <Route
                   path="/cancion/:id"
                   element={<Cancion mySongs={mySongs} />}
