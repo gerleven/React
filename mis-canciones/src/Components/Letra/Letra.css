@@ -1,18 +1,16 @@
 /* Letra: */
 .root {
-  width: 100%;
-  max-width: 800;
-  margin: "2rem auto";
+  margin: 2rem auto;
 }
 .lyrics {
   white-space: pre-wrap !important;
 }
 .title {
-  margin-bottom: "3rem !important";
+  margin-bottom: 3rem !important;
 }
 .media {
   background-size: cover;
-  height: "50vh";
+  max-height: 50vh;
 }
 .addBtn {
   justify-content: flex-end;

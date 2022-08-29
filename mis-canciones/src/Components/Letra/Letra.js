@@ -3,11 +3,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { styled } from "@mui/material/styles";
 import "./Letra.css";
 
-const MyCard = styled(Card)(() => ({ maxWidth: 345 }));
+const MyCard = styled(Card)(() => ({
+  borderRadius: "20px",
+}));
 
 const Letra = ({
   currentSong,
@@ -28,7 +29,7 @@ const Letra = ({
         <CardMedia
           className="media"
           component="img"
-          height="140"
+          height="20%"
           image={currentSong.avatar}
           alt={`${currentSong.artist} picture profile`}
           title={currentSong.artist}
