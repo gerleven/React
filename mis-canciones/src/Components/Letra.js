@@ -4,7 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import "./Letra.css";
+import "../App.css";
 
 const MyCard = styled(Card)(() => ({
   borderRadius: "20px",
@@ -24,10 +24,10 @@ const Letra = ({
   };
 
   return (
-    <MyCard className="root">
+    <MyCard className="LetraRoot">
       <CardActionArea>
         <CardMedia
-          className="media"
+          className="LetraMedia"
           component="img"
           height="20%"
           image={currentSong.avatar}
@@ -39,7 +39,7 @@ const Letra = ({
             gutterBottom
             variant="h4"
             component="h2"
-            className="title"
+            className="LetraTitle"
           >
             {currentSong.artist + " - " + currentSong.song}
           </Typography>
@@ -47,13 +47,13 @@ const Letra = ({
             variant="body2"
             color="text.secondary"
             component="p"
-            className="lyric"
+            className="LetraLyric"
           >
             {currentSong.lyric}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions className="addBtn">
+      <CardActions className="LetraAddBtn">
         <Button size="small" color="primary" onClick={handleClickAgregar}>
           Agregar
         </Button>

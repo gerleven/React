@@ -64,3 +64,23 @@
 .ListItemCancionTitle {
   margin: 4, 0, 2;
 }
+
+
+/*Letra*/
+/* Letra: */
+.LetraRoot {
+  margin: 4rem auto;
+}
+.LetraLyrics {
+  white-space: pre-wrap !important;
+}
+.LetraTitle {
+  margin-bottom: 3rem !important;
+}
+.LetraMedia {
+  background-size: cover;
+  max-height: 50vh;
+}
+.LetraAddBtn {
+  justify-content: flex-end;
+}

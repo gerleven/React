@@ -19,7 +19,7 @@ import Home from "./Pages/Home";
 import Cancion from "./Pages/Cancion";
 import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
-import Letra from "./Components/Letra/Letra";
+import Letra from "./Components/Letra";
 import ListaCanciones from "./Components/ListaCanciones/ListaCanciones";
 import Loader from "./Components/Loader/Loader";
 import Stack from "@mui/material/Stack";
