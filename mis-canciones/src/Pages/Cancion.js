@@ -58,11 +58,11 @@ const Cancion = ({ mySongs }) => {
             {song.lyric}
           </Typography>
         </CardContent>
-        <CardActions className="LetraAddBtn">
+        {/* <CardActions className="LetraAddBtn">
           <Button size="small" color="primary" onClick={handleHomeButton}>
             Volver
           </Button>
-        </CardActions>
+        </CardActions> */}
       </Card>
     </>
   );
