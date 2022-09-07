@@ -1,9 +1,6 @@
 import "./App.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-import { HashRouter } from "react-router-dom";
-
 import Header from "./Components/Header";
 import Eror404 from "./Pages/Error404";
 import Cancion from "./Pages/Cancion";
@@ -14,6 +11,7 @@ import ListaCanciones from "./Components/ListaCanciones";
 import Loader from "./Components/Loader/Loader";
 import Stack from "@mui/material/Stack";
 import { Alert, AlertTitle } from "@mui/material";
+import { HashRouter } from "react-router-dom";
 
 function App() {
   //Variables
@@ -24,9 +22,7 @@ function App() {
     song: "",
     request: false,
   };
-
   let currentSongInit = {};
-
   //Variables de estado
   const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf // array vacio o de canciones
   const [search, setSearch] = useState(searchInit); //inputs del buscador
@@ -78,10 +74,9 @@ function App() {
       return;
     }
   }, [search]);
-
   return (
-    <BrowserRouter>
-      <HashRouter>
+    // <BrowserRouter>
+    <HashRouter basename="/">
       <CssBaseline>
         <div className="App-backgroundColor">
           <div className="App">
@@ -90,7 +85,7 @@ function App() {
             <main className="App-main">
               <Routes>
                 <Route
-                  path="/*"
+                  path="/"
                   element={
                     <>
                       <Buscador
@@ -148,8 +143,8 @@ function App() {
           </div>
         </div>
       </CssBaseline>
-      </HashRouter>
-    </BrowserRouter>
+    </HashRouter>
+    // </BrowserRouter>
   );
 }
 
