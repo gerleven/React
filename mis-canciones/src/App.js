@@ -81,7 +81,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HashRouter basename="/">
+      <HashRouter basename="/"> 
       <CssBaseline>
         <div className="App-backgroundColor">
           <div className="App">
