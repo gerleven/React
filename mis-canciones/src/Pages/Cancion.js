@@ -64,6 +64,15 @@ const Cancion = ({ mySongs }) => {
           </Button>
         </CardActions> */}
       </Card>
+      <div className="LetraGoHome">
+        <Button
+          variant="outlined"
+          startIcon={<HomeIcon />}
+          onClick={handleHomeButton}
+        >
+          Volver
+        </Button>
+      </div>
     </>
   );
 };

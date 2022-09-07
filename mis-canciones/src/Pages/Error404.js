@@ -14,27 +14,27 @@ const Eror404 = () => {
       <Stack sx={{ width: "100%" }} spacing={2}>
         <Alert
           severity="error"
-          onClose={() => {
-            navigate("/");
-          }}
-          action={
-            <Button
-              color="inherit"
-              size="small"
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              Volver
-            </Button>
-          }
+          // onClose={() => {
+          //   navigate("/");
+          // }}
+          // action={
+          //   <Button
+          //     color="inherit"
+          //     size="small"
+          //     onClick={() => {
+          //       navigate("/");
+          //     }}
+          //   >
+          //     Volver
+          //   </Button>
+          // }
         >
           <AlertTitle>Pagina no encontrada</AlertTitle>
           La url <b>'{url.pathname}'</b> no fue encontrada
         </Alert>
       </Stack>
       <div style={{ margin: "1rem auto", textAlign: "center" }}>
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: "unset" }}>
           <Button variant="outlined" startIcon={<HomeIcon />}>
             Volver
           </Button>

@@ -6,7 +6,6 @@ const Header = () => {
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <h1>Mis canciones</h1>
-      <p>1730-2</p>
       <img src={logo} className="App-logo" alt="logo" />
     </header>
   );
