@@ -78,7 +78,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HashRouter basename="/React">
+      <HashRouter basename="/">
         <CssBaseline>
           <div className="App-backgroundColor">
             <div className="App">
