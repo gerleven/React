@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://german.levental/React/",
+  "homepage": "https://gerleven.github.io/",
   "eslintConfig": {
     "extends": [
       "react-app",
