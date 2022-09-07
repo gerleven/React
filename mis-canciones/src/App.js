@@ -80,75 +80,75 @@ function App() {
   }, [search]);
 
   return (
-    <BrowserRouter basename="/">
-      <HashRouter>
-        <CssBaseline>
-          <div className="App-backgroundColor">
-            <div className="App">
-              <Header />
+    <BrowserRouter>
+      {/* <HashRouter> */}
+      <CssBaseline>
+        <div className="App-backgroundColor">
+          <div className="App">
+            <Header />
 
-              <main className="App-main">
-                <Routes>
-                  <Route
-                    path="/*"
-                    element={
-                      <>
-                        <Buscador
-                          search={search}
-                          setSearch={setSearch}
-                          setError={setError}
-                          setCurrentSong={setCurrentSong}
-                        />
+            <main className="App-main">
+              <Routes>
+                <Route
+                  path="/*"
+                  element={
+                    <>
+                      <Buscador
+                        search={search}
+                        setSearch={setSearch}
+                        setError={setError}
+                        setCurrentSong={setCurrentSong}
+                      />
 
-                        {search.request ? ( //Si se hizo una busqueda
-                          error ? (
-                            <Stack className="stackAlert">
-                              <Alert severity="error">
-                                <AlertTitle>
-                                  No hubo resultados para la siguiente busqueda:
-                                </AlertTitle>
-                                <ul>
-                                  <li>
-                                    Artista: <b>{search.artist}</b>
-                                  </li>
-                                  <li>
-                                    Canción: <b>{search.song}</b>
-                                  </li>
-                                </ul>
-                              </Alert>
-                            </Stack>
-                          ) : loading ? (
-                            <Loader />
-                          ) : (
-                            <Letra
-                              currentSong={currentSong}
-                              setCurrentSong={setCurrentSong}
-                              mySongs={mySongs}
-                              setMySongs={setMySongs}
-                              setSearch={setSearch}
-                            />
-                          )
+                      {search.request ? ( //Si se hizo una busqueda
+                        error ? (
+                          <Stack className="stackAlert">
+                            <Alert severity="error">
+                              <AlertTitle>
+                                No hubo resultados para la siguiente busqueda:
+                              </AlertTitle>
+                              <ul>
+                                <li>
+                                  Artista: <b>{search.artist}</b>
+                                </li>
+                                <li>
+                                  Canción: <b>{search.song}</b>
+                                </li>
+                              </ul>
+                            </Alert>
+                          </Stack>
+                        ) : loading ? (
+                          <Loader />
                         ) : (
-                          //No se hizo una busqueda
-                          <ListaCanciones
+                          <Letra
+                            currentSong={currentSong}
+                            setCurrentSong={setCurrentSong}
                             mySongs={mySongs}
                             setMySongs={setMySongs}
+                            setSearch={setSearch}
                           />
-                        )}
-                      </>
-                    }
-                  ></Route>
-                  <Route
-                    path="/cancion/:id"
-                    element={<Cancion mySongs={mySongs} />}
-                  />
-                  <Route path="*" element={<Eror404 />} />
-                </Routes>
-              </main>
-            </div>
+                        )
+                      ) : (
+                        //No se hizo una busqueda
+                        <ListaCanciones
+                          mySongs={mySongs}
+                          setMySongs={setMySongs}
+                        />
+                      )}
+                    </>
+                  }
+                ></Route>
+                <Route
+                  path="/cancion/:id"
+                  element={<Cancion mySongs={mySongs} />}
+                />
+                <Route path="*" element={<Eror404 />} />
+              </Routes>
+            </main>
           </div>
-        </CssBaseline>
-      </HashRouter>
+        </div>
+      </CssBaseline>
+      {/* </HashRouter> */}
     </BrowserRouter>
   );
 }
