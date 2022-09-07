@@ -81,7 +81,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <HashRouter> */}
+      <HashRouter>
       <CssBaseline>
         <div className="App-backgroundColor">
           <div className="App">
@@ -148,7 +148,7 @@ function App() {
           </div>
         </div>
       </CssBaseline>
-      {/* </HashRouter> */}
+      </HashRouter>
     </BrowserRouter>
   );
 }

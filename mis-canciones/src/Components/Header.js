@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
-      <h1>Mis canciones - v24</h1>
+      <h1>Mis canciones - v25</h1>
       <img src={logo} className="App-logo" alt="logo" />
     </header>
   );
