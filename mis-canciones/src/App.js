@@ -1,6 +1,6 @@
 import "./App.css";
 import CssBaseline from "@mui/material/CssBaseline";
-import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Eror404 from "./Pages/Error404";
 import Cancion from "./Pages/Cancion";
@@ -78,7 +78,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <HashRouter basename="/">
+      
         <CssBaseline>
           <div className="App-backgroundColor">
             <div className="App">
@@ -145,7 +145,7 @@ function App() {
             </div>
           </div>
         </CssBaseline>
-      </HashRouter>
+      
     </BrowserRouter>
   );
 }
