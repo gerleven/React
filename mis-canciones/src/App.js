@@ -80,8 +80,8 @@ function App() {
   }, [search]);
 
   return (
-    <BrowserRouter>
-      <HashRouter basename="/">
+    <BrowserRouter basename="/">
+      <HashRouter>
         <CssBaseline>
           <div className="App-backgroundColor">
             <div className="App">
