@@ -90,7 +90,7 @@ function App() {
               <main className="App-main">
                 <Routes>
                   <Route
-                    path="/"
+                    path="/*"
                     element={
                       <>
                         <Buscador
