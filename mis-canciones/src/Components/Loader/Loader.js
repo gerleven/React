@@ -3,6 +3,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import "./Loader.css";
 import { Box } from "@mui/system";
 
+/*How to replace makeStyle with a "myStyle object" and "sx" property: */
 const circularProgressStyle2 = {
   display: "flex",
   justifyContent: "center",
@@ -13,9 +14,16 @@ const circularProgressStyle2 = {
 
 const Loader = () => {
   return (
-    <Box sx={circularProgressStyle2}>
-      <CircularProgress />
-    </Box>
+    <>
+      <Box sx={circularProgressStyle2}>
+        <CircularProgress />
+      </Box>
+
+      {/*How to replace makeStyle with a "CSS class" and "className" property: */}
+      {/* <Box className="circularProgressStyle">
+        <CircularProgress />
+      </Box> */}
+    </>
   );
 };
 

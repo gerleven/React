@@ -13,6 +13,8 @@ import Stack from "@mui/material/Stack";
 import { Alert, AlertTitle } from "@mui/material";
 import { HashRouter } from "react-router-dom";
 
+/*How to replace "makeStyle" using 1) "myStyleObject" and "sx" property 2) a "CSS class" and "className" property: Check Loader component*/
+
 function App() {
   //Variables
   let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || []; //{artist,avatar,song,lyric}
