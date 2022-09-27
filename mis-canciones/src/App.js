@@ -44,16 +44,13 @@ function App() {
 
       try {
         let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-        let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`; //that Api is not working, I'll replace the Lyric by a "Lyrics not found" string.
+        let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;
 
         let artistResponse = await (await fetch(artistApi)).json();
-        //let songResponse = await (await fetch(songApi)).json();
-        let songResponse = {
-          lyrics:
-            "Oops! It looks like the api.lyrics.ovh is not working right now:     <<" +
-            songApi +
-            ">>",
-        };
+        let songResponse = await (await fetch(songApi)).json();
+        if (!songResponse.lyrics) {
+          songResponse.lyrics = `Oops! It looks like the api.lyrics.ovh is not working right now:     <<${songApi}>>`;
+        }
 
         setCurrentSong({
           artist: artistResponse.artists[0].strArtist,
