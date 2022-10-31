@@ -13,6 +13,10 @@ import Stack from "@mui/material/Stack";
 import { Alert, AlertTitle } from "@mui/material";
 import { HashRouter } from "react-router-dom";
 
+import { getArtist } from "./Services/Songs.services";
+import { getFakeArtist } from "./Services/FakeSongs.services";
+import { getPokemons } from "./Services/Pokemons.services";
+
 /*How to replace "makeStyle" using 1) "myStyleObject" and "sx" property 2) a "CSS class" and "className" property: Check Loader component*/
 
 function App() {
@@ -33,49 +37,97 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   //Funcion de efecto
-  useEffect(() => {
-    localStorage.setItem("mySongs", JSON.stringify(mySongs));
+  useEffect(
+    /* async */ () => {
+      //IMPORTANTE: No podemos ponerle un async a la funcion callback que le pasamos por parametros al usseEfect, pero si podemos declarar una nueva funcion getData adentro y hacer que esa sea la funcion async
 
-    const getData = async () => {
+      //Para probar si funciona la API:
+      //https://www.theaudiodb.com/api/v1/json/2/search.php?s=mika
+      localStorage.setItem("mySongs", JSON.stringify(mySongs));
+
+      //getArtist
+      //getFakeArtist
+      //getPokemons
+
       const { artist, song } = search;
       setLoading(true);
       setCurrentSong({});
       setError(false);
 
-      try {
-        let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
-        let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+      const getData = () => {
+        this.getFakeArtist("mika")
+          .then((data) => {
+            console.log(data);
+            debugger;
+          })
+          .catch((error) => {
+            debugger;
+          });
+      };
 
-        let artistResponse = await (await fetch(artistApi)).json();
-        let songResponse = await (await fetch(songApi)).json();
-        if (!songResponse.lyrics) {
-          songResponse.lyrics = `Oops! It looks like the api.lyrics.ovh is not working right now:     <<${songApi}>>`;
-        }
+      // const getData = async () => {
 
-        setCurrentSong({
-          artist: artistResponse.artists[0].strArtist,
-          avatar: artistResponse.artists[0].strArtistThumb,
-          song,
-          lyric:
-            songResponse.lyrics != undefined
-              ? songResponse.lyrics
-              : songResponse.error,
-        });
-        setLoading(false);
-      } catch (error) {
-        console.log("error: ", error);
-        setError(true);
-        setLoading(false);
-        setCurrentSong(currentSongInit);
+      //   getArtist(artist).then(
+      //     data=>{
+
+      //     }
+      //   ).catch();
+      //   try {
+      //     let artistApi = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`;
+      //     let songApi = `https://api.lyrics.ovh/v1/${artist}/${song}`;
+
+      //     let auxRequest = "https://pokeapi.co/api/v2/pokemon/";
+      //     let auxRequestResponse = await fetch(auxRequest).then();
+      //     console.log(auxRequestResponse);
+      //     debugger;
+      //     let auxRequestResponseJson = auxRequestResponse.json();
+
+      //     let artistResponse = await fetch(artistApi);
+      //     let artistResponseJson = {};
+      //     if (artistResponse) {
+      //       artistResponseJson = await artistResponse.json();
+      //     } else {
+      //       artistResponseJson = {
+      //         artists: [
+      //           {
+      //             strArtist: "Mika",
+      //             strArtistThumb:
+      //               "https://images.ecestaticos.com/qZbugK4NVj5j_GNqLSFM7I2YcDo=/250x0:2252x1502/557x418/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F327%2F71a%2Fe2e%2F32771ae2e2e2867a7d352b08bd6413ad.jpg",
+      //           },
+      //         ],
+      //       };
+      //     }
+      //     let songResponse = await (await fetch(songApi)).json();
+      //     if (!songResponse.lyrics) {
+      //       songResponse.lyrics = `Oops! It looks like the api.lyrics.ovh is not working right now:     <<${songApi}>>`;
+      //     }
+
+      //     setCurrentSong({
+      //       artist: artistResponse.artists[0].strArtist,
+      //       avatar: artistResponse.artists[0].strArtistThumb,
+      //       song,
+      //       lyric:
+      //         songResponse.lyrics != undefined
+      //           ? songResponse.lyrics
+      //           : songResponse.error,
+      //     });
+      //     setLoading(false);
+      //   } catch (error) {
+      //     console.log("error: ", error);
+      //     setError(true);
+      //     setLoading(false);
+      //     setCurrentSong(currentSongInit);
+      //   }
+      // };
+
+      if (search.request) {
+        getData();
+      } else {
+        return;
       }
-    };
-
-    if (search.request) {
-      getData();
-    } else {
-      return;
-    }
-  }, [search]);
+    },
+    [search]
+  );
   return (
     // <BrowserRouter>
     <HashRouter basename="/">
