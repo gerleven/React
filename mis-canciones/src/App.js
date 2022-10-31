@@ -12,12 +12,11 @@ import Loader from "./Components/Loader/Loader";
 import Stack from "@mui/material/Stack";
 import { Alert, AlertTitle } from "@mui/material";
 import { HashRouter } from "react-router-dom";
-
-/*How to replace "makeStyle" using 1) "myStyleObject" and "sx" property 2) a "CSS class" and "className" property: Check Loader component*/
+import fakeListOfArtists from "./fakeSongs";
 
 function App() {
   //Variables
-  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || []; //{artist,avatar,song,lyric}
+  let mySongsInit = JSON.parse(localStorage.getItem("mySongs")) || []; //{artist,avatar,song,lyric};
 
   let searchInit = {
     artist: "",
@@ -64,9 +63,16 @@ function App() {
         setLoading(false);
       } catch (error) {
         console.log("error: ", error);
-        setError(true);
+        //setError(true);
         setLoading(false);
         setCurrentSong(currentSongInit);
+        setCurrentSong({
+          artist: artist,
+          avatar: fakeListOfArtists[Math.floor(Math.random() * 5)].avatar,
+          song: `Fake example of "${song}"`,
+          lyric:
+            "Whoops! The API doesn't seem to be working right now, but use this fake example to get you going...",
+        });
       }
     };
 
