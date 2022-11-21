@@ -1,3 +1,5 @@
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-header img {
     animation: App-logo-spin infinite 20s linear;
@@ -13,12 +15,18 @@
   }
 }
 
+a {
+  text-decoration: none;
+  color: initial;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   max-width: 752px;
   min-height: 100vh;
   margin: 0 auto;
+  background-color: #fff;
 }
 
 .App-header {
@@ -29,11 +37,6 @@
 .App-header img {
   max-width: 64px;
   height: auto;
-}
-
-.App-backgroundColor {
-  /* background-color: rgb(247, 247, 247); */
-  background-color: #fff;
 }
 
 .alert {
