@@ -54,7 +54,7 @@ const Letra = ({
 
       <CardActions className="LetraAddBtn">
         <Button size="small" color="primary" onClick={handleClickAgregar}>
-          Agregar
+          Add
         </Button>
       </CardActions>
     </MyCard>

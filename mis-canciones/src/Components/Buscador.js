@@ -60,7 +60,7 @@ const Buscador = ({ search, setSearch, setError, setCurrentSong }) => {
       <TextField
         id="artist"
         name="artist"
-        label="Artista"
+        label="Artist"
         variant="standard"
         required
         InputProps={{
@@ -84,7 +84,7 @@ const Buscador = ({ search, setSearch, setError, setCurrentSong }) => {
       <TextField
         id="song"
         name="song"
-        label="Cancion"
+        label="Song"
         variant="standard"
         required
         InputProps={{

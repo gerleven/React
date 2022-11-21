@@ -122,14 +122,14 @@ function App() {
                         <Stack className="stackAlert">
                           <Alert severity="error">
                             <AlertTitle>
-                              No hubo resultados para la siguiente busqueda:
+                            The search returned no results.:
                             </AlertTitle>
                             <ul>
                               <li>
-                                Artista: <b>{search.artist}</b>
+                                Artist: <b>{search.artist}</b>
                               </li>
                               <li>
-                                Canción: <b>{search.song}</b>
+                                Song: <b>{search.song}</b>
                               </li>
                             </ul>
                           </Alert>

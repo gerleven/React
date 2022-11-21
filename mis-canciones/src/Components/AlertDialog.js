@@ -33,10 +33,10 @@ const AlertDialog = ({ id, deleteSong }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">Alerta de Eliminación</DialogTitle>
+        <DialogTitle id="alert-dialog-title">Deletion confirmation</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            ¿Estás apunto de borrar la canción con el id <b>{id}</b>?
+          Confirm that you want to delete the song with id <b>{id}</b>?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -48,10 +48,10 @@ const AlertDialog = ({ id, deleteSong }) => {
             color="primary"
             style={{ marginRight: "5px" }}
           >
-            <DeleteForeverIcon style={{ ...iconStyles }} /> Eliminar
+            <DeleteForeverIcon style={{ ...iconStyles }} /> Remove
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
-            <PanToolIcon style={{ ...iconStyles }} /> Cancelar
+            <PanToolIcon style={{ ...iconStyles }} /> Cancel
           </Button>
         </DialogActions>
       </Dialog>

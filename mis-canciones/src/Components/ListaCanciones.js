@@ -59,7 +59,7 @@ const ListaCanciones = ({ mySongs, setMySongs }) => {
     <div>
       {mySongs.length == 0 ? (
         <Stack className="stackAlert">
-          <Alert severity="info">Aún no tienes canciones guardadas</Alert>
+          <Alert severity="info">You don't have songs saved</Alert>
         </Stack>
       ) : (
         <List className="ListItemCancionRoot">{generate()}</List>

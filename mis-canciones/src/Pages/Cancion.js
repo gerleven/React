@@ -28,7 +28,7 @@ const Cancion = ({ mySongs }) => {
           startIcon={<HomeIcon />}
           onClick={handleHomeButton}
         >
-          Volver
+          Back
         </Button>
       </div>
       <Card className="LetraRoot">
@@ -70,7 +70,7 @@ const Cancion = ({ mySongs }) => {
           startIcon={<HomeIcon />}
           onClick={handleHomeButton}
         >
-          Volver
+          Back
         </Button>
       </div>
     </>

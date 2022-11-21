@@ -29,14 +29,14 @@ const Eror404 = () => {
           //   </Button>
           // }
         >
-          <AlertTitle>Pagina no encontrada</AlertTitle>
-          La url <b>'{url.pathname}'</b> no fue encontrada
+          <AlertTitle>Page not found</AlertTitle>
+          the url <b>'{url.pathname}'</b> was not found
         </Alert>
       </Stack>
       <div style={{ margin: "1rem auto", textAlign: "center" }}>
         <Link to="/" style={{ textDecoration: "unset" }}>
           <Button variant="outlined" startIcon={<HomeIcon />}>
-            Volver
+            Back
           </Button>
         </Link>
       </div>
