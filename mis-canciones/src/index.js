@@ -11,6 +11,8 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#61DAFB",
+      dark: "#005ea8",
+      light: "#ddf7fe",
     },
   },
   components: {
@@ -29,6 +31,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiSnackbarContent:{
+      defaultProps: {
+        sx: {
+          backgroundColor: "#0090db",
+        },
+        
+      }
+    }
   },
 });
 

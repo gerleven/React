@@ -1,21 +1,22 @@
 //https://stackblitz.com/run?file=demo.js
 //https://mui.com/material-ui/react-snackbar/#customization
-import "./App.css";
+import { React, useEffect, useState } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Eror404 from "./Pages/Error404";
 import Cancion from "./Pages/Cancion";
-import { React, useEffect, useState } from "react";
 import Buscador from "./Components/Buscador";
 import Letra from "./Components/Letra";
 import ListaCanciones from "./Components/ListaCanciones";
 import Loader from "./Components/Loader/Loader";
 import Stack from "@mui/material/Stack";
-import { Alert, AlertTitle } from "@mui/material";
+import { Alert, AlertTitle, Fade } from "@mui/material";
 import { HashRouter } from "react-router-dom";
 import fakeListOfArtists from "./fakeSongs";
 import CustomSnakBar from "./Components/SnackBar/CustomSnackBar";
+import AppGlobalService from "./Services/AppGlobal.service";
+import "./App.css";
 
 function App() {
   //Variables
@@ -36,7 +37,13 @@ function App() {
     song: "",
     request: false,
   };
+  
   let currentSongInit = {};
+  
+  let toastStateInit = {
+    open: true,
+    message: "This App uses third party API. In case the API does not work a fake information will be used!",
+  };
 
   //Variables de estado
   const [mySongs, setMySongs] = useState(mySongsInit); //snippet: usf // array vacio o de canciones
@@ -44,6 +51,10 @@ function App() {
   const [currentSong, setCurrentSong] = useState(currentSongInit); //Resultado de la api al buscar con los inputs del search
   const [error, setError] = useState(false); //boolean
   const [loading, setLoading] = useState(false);
+  const [toastState, setToastState] = useState(toastStateInit);
+
+  
+  
 
   //Funcion de efecto
   useEffect(() => {
@@ -76,6 +87,7 @@ function App() {
         });
         setLoading(false);
       } catch (error) {
+        setToastState({open: true, message: "It looks like the API of Lyrics is not working. A fake data will be loaded."});
         console.log("error: ", error);
         //setError(true);
         setLoading(false);
@@ -101,7 +113,7 @@ function App() {
     <HashRouter basename="/">
       <CssBaseline>
         <div className="App">
-          <CustomSnakBar></CustomSnakBar>
+          <CustomSnakBar toastState={toastState} setToastState={setToastState}/>
           <Header />
 
           <main className="App-main">
